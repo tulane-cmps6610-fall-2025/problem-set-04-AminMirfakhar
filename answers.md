@@ -55,12 +55,17 @@ as few coins as possible that sum to $N$.
 
   - So, we can look for the largest number of k that $2^k$ is less than or equal to the N, in this case if we subtract the value form N $\to N' = N-2^k$ then we can repeat this process untill the N' = 0. In other words, if we look at the binary representation of N then the number of position having element 1 shows the number and values of the coins we should get. 
 
-- **3b.**
+- **3b.** Prove that this algorithm is optimal by proving the greedy
+  choice and optimal substructure properties.
+
+    - 
 
 
 
 
-- **3c.**
+- **3c.**  What is the work and span of your algorithm?
+
+  - the process is similar to deviding N by 2 we repeat the process for the quotient in each step and keep the number of time we did this if remainder is equal to 1. So the number of that we can perform devision by 2 is equal to the work and span (since it is a sequential process) then it will at most take $\log{_2}{N}$. The other method is taking the int value of $\log{_2}{N}$ (k) then calculate the $N - 2^k$ and repeat this process. which again would take k times at most (k  = int($\log{_2}{N}$)).
 
 
 ----

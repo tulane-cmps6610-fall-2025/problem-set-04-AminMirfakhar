@@ -92,6 +92,8 @@ possible?
   work in Fortuito. Give a simple counterexample that shows that the
   greedy algorithm does not produce the fewest number of coins.
 
+    - consider the case that N is equal is to 9 and the coin set is {1, 2, 4, 5, 6} then if we take the largest coin af first which is 6 then we have to take 2 and 1 in the next steps since we don't have any other options (3 coins {6, 2, 1}). But if we take 5 at first instead of 6 then on the next step we can take 4 and end up having 2 coins instead of 3 (2 coins {5, 4}).
+
 
 
 - **4b.** Since you paid attention in Algorithms class, you realize that

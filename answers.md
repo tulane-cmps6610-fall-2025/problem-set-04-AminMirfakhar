@@ -1,7 +1,7 @@
 # CMPS 6610 Problem Set 04
 ## Answers
 
-**Name:**_________________________
+**Name:** Amin Mirfakhar
 
 
 Place all written answers from `problemset-04.md` here for easier grading.
@@ -26,14 +26,20 @@ fields.c    |                     |                |
 
 
 
+----
+
+## Part 2: Binary Heaps
+
+- **2a.** Give a method to construct a binary min-heap in $O(n)$
+work. Hint: Given an array $A$ of elements, consider the implicit
+representation as an
+almost-complete binary tree and show how to achieve the heap
+property for this tree with $O(n)$ work.
 
 
-- **2a.**
 
 
-
-
-- **2b.**
+- **2b.** What is the span of your approach?
 
 
 ----
@@ -70,16 +76,39 @@ as few coins as possible that sum to $N$.
 
 ----
 
-- **4a.**
+## Part 4: Making Change Again
+
+You get tired of Geometrica and travel to the nearby town of
+Fortuito. While Fortuito also has a 1-1 exchange rate to the US
+Dollar, it has an even stranger system of currency where any given bank
+has a completely arbitrary set of denominations ($k$ denominations of
+values $D_0, D_2, \ldots, D_k$). There is no guarantee that you can
+even make change. So you wonder, given $N$ dollars is it possible to
+even make change? If so, how can it be done with as few coins as
+possible?
+
+
+- **4a.** You realize the greedy algorithm you devised above doesn't
+  work in Fortuito. Give a simple counterexample that shows that the
+  greedy algorithm does not produce the fewest number of coins.
 
 
 
-- **4b.**
+- **4b.** Since you paid attention in Algorithms class, you realize that
+  while this problem does not have the greedy choice property it does
+  have an optimal substructure property. State and prove this
+  property.
 
 
 
 
-- **4c.**
+- **4c.** Use this optimal substructure property to design a
+  dynamic programming algorithm for this problem. If you used top-down
+  or bottom-up memoization to avoid recomputing solutions to
+  subproblems, what is the work and span of your approach?
+
+
+  ----
 
 
 - **5a.**

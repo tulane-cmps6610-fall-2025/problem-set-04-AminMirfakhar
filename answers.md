@@ -58,7 +58,7 @@ as few coins as possible that sum to $N$.
 - **3b.** Prove that this algorithm is optimal by proving the greedy
   choice and optimal substructure properties.
 
-    - 
+    - If we don't act greedy then instead of taking the largest value k (in greedy algorithm G) then there is a m whick m is less than k and m is in the optimal set (O). In this case we devide our problem into to suboptimal case with $N - 2^m$ and then we could end up with more than one of coin m, but for each 2 coin with value m there is a coin with value m+1 if we repeat this process to reduce the number of coins then we reach m should be equal to k.
 
 
 

@@ -3,13 +3,61 @@
 
 **Name:** Amin Mirfakhar
 
-
-Place all written answers from `problemset-04.md` here for easier grading.
-
+----
 
 
+## Part 1: Fixed-Length vs. Variable-Length Codes
 
-- **1d.**
+You saw the Huffman coding algorithm for data compresssion in our
+course materials. Let's implement the algorithm and look at its
+empirical performance on a dataset of 5 text files.
+
+- **1a.** Already implemented is a means to compute character frequencies
+  in a text file with the function `get_frequencies` in
+  `main.py`. Compute cost for a fixed length encoding for each text
+  file.
+
+
+    ``` Python
+
+
+  ```
+  
+
+- **1b.** Complete the implementation of Huffman coding in
+  `make_huffman_tree`. Note that we manipulate binary trees in the
+  priority queue using the object `TreeNode`. Moreover, once the tree
+  is constructed, we must compute the actual encodings by traversing
+  the Huffman tree that has been constructed. To do this, complete the
+  implementation of `get_code`, which is a typical recursive binary
+  tree traversal. That is, given a tree node, we recursively visit the
+  left and right subtrees, appending a `0` or `1` to the encoding in
+  each direction as appropriate. If we visit a leaf of the tree (which
+  represents a character in the alphabet) we store the
+  collected encoding for that character in `code`.
+
+    ``` Python
+
+
+  ```
+  
+ 
+- **1c.** Now implement `huffman_cost` to compute the cost of a Huffman
+  encoding for a character set with given frequencies.
+
+
+  ``` Python
+
+
+  ```
+
+
+
+- **1d.**  Test your implementation of Huffman coding on the 5 given text
+files, and fill out a table of the encoding cost of each file for
+fixed-length and Huffman. Fill out a final column which gives the
+ratio of Huffman coding cost to fixed-length coding cost. Do you see a
+consistent trend? If so, what is it?
 
 
 |      File     | Fixed-Length Coding |  Huffman Coding | Huffman vs. Fixed-Length |
@@ -20,9 +68,6 @@ Place all written answers from `problemset-04.md` here for easier grading.
 | grammar.lsp  | 26047 | 17356 | 0.67  |
 | fields.c  | 78050  | 56206  | 0.72 |
 | **Average**  | **404211.4** | **271442.0** | **0.67** |
-
-
-- **1d.**
 
 
 

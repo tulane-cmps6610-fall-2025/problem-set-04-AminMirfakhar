@@ -5,6 +5,8 @@
 
 ----
 
+<p style="text-align:center;">Sample text with center alignment</p>
+
 
 ## Part 1: Fixed-Length vs. Variable-Length Codes
 

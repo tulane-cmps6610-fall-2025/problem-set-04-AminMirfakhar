@@ -157,14 +157,32 @@ possible?
 
   ----
 
+  ## Part 5: Weighted Task Selection
 
-- **5a.**
+In class we gave a greedy algorithm for task scheduling. In that
+problem, all tasks had equal value and the goal was to simply maximize
+the total number of non-overlapping tasks. Suppose now that we
+consider tasks $A= \{ a_0, \ldots, a_{n-1} \}$ where
+each task $a_i$  has $(s_i, f_i, v_i)$, with start and finish times as
+well as a value for completion. The goal now is to identify a set of
+tasks with maximum value. 
+
+
+- **5a.** Does the optimal substructure property hold for weighted task
+selection? If so, prove it. If not, give a counterexample.
 
 
 
-- **5b.**
+- **5b.** Does the greedy choice property hold for this problem? If so,
+define a greedy criterion and prove that it satisfies the greedy
+choice property. If you cannot, find at least two counterexamples of greedy
+criteria that fail to achieve an optimal solution. 
 
 
 
 
-- **5c.**
+- **5c.** Use the optimal substructure property of this problem to design a
+  dynamic programming algorithm for this problem. Derive the work and span of your approach.
+
+
+  

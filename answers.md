@@ -19,7 +19,13 @@ empirical performance on a dataset of 5 text files.
 
 
     ``` Python
-
+    
+# given an alphabet and frequencies, compute the cost of a fixed length encoding
+def fixed_length_cost(f):
+    n = len(f) 
+    bits_per_char = math.ceil(math.log2(n)) if n > 0 else 0
+    total_chars = sum(f.values())
+    return bits_per_char * total_chars
 
   ```
   

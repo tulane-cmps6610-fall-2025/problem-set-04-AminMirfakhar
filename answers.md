@@ -249,17 +249,17 @@ criteria that fail to achieve an optimal solution.
     ``` Python
 
     def weighted_task_selection(tasks):
-      tasks.sort(key=lambda x: x[1])  # sort out the tasks by their ending time.
+      tasks.sort(key=lambda x: x[1])  # sort out the tasks by their ending time. W: O(n log n) S: O(log^2 n)
       n = len(tasks)
-      p = compute_p(tasks) # precompute the last compatible task
-      OPT = [0]*(n+1)
-      for j in range(1, n+1):
+      p = compute_p(tasks) # precompute the last compatible task  W: O(n log n) S: O(log(n))
+      OPT = [0]*(n+1) 
+      for j in range(1, n+1): # creating substructure for DP W: O(n) S: O(n)
           OPT[j] = max(tasks[j-1][2] + OPT[p[j-1]], OPT[j-1])
       return OPT[n]
 
     ```
 
   - Work: O(n log n) for sorting + O(n log n) to find p(j) → overall O(n log n).
-  - Span: O(log n) if sorting and binary search are parallelized.
+  - Span: O(n) if sorting and binary search are parallelized O(log n).
 
   

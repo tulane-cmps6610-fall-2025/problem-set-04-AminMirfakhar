@@ -183,15 +183,33 @@ possible?
   property.
 
 
-  - Having the coins set fixed ($k$ denominations of values $D_0, D_2, \ldots, D_k$) the Optimal substructure stats that if the optimal solution for $Optimal(N)$ has for example $D_i$ in it then the problem of having $N - D_i$ should have an optimal solution itself meaning the minimum number of coins.
-
-
+  - Having the coins set fixed ($k$ denominations of values $D_0, D_2, \ldots, D_k$) the Optimal substructure stats that if the optimal solution for $Optimal(N)$ has for example $D_i$ in it then the problem of having $N - D_i$ should have an optimal solution itself meaning the minimum number of coins. Otherwise, replacing it with a better solution for that subproblem would yield fewer coins, contradicting optimality.
 
 
 - **4c.** Use this optimal substructure property to design a
   dynamic programming algorithm for this problem. If you used top-down
   or bottom-up memoization to avoid recomputing solutions to
   subproblems, what is the work and span of your approach?
+
+
+    ``` Python
+
+  def min_coins(N, D):
+    dp = [float('inf')] * (N + 1)
+    dp[0] = 0
+    for i in range(1, N + 1):
+      for d in D:
+        if d <= i:
+          dp[i] = min(dp[i], 1 + dp[i - d])
+      return dp[N] if dp[N] != inf else None
+
+    ```
+
+  - Work: O(N × k), where k = number of denominations.
+  - Span: O(N), since each state depends on previous ones sequentially.
+
+
+If parallelized per d, the span can be reduced to O(log k) per iteration.
 
 
   ----
@@ -217,11 +235,27 @@ define a greedy criterion and prove that it satisfies the greedy
 choice property. If you cannot, find at least two counterexamples of greedy
 criteria that fail to achieve an optimal solution. 
 
+  - The greedy choice property does not hold for weighted task selection. for example consider we have three task to schedule {A: (0, 3, 3), B: (3, 5, 4), C: (0, 5, 6)} then the greedy algorithm will take A and B that takes 3 + 4 = 7 but the optimal solution is taking C instead having value of 6.
 
 
 
 - **5c.** Use the optimal substructure property of this problem to design a
   dynamic programming algorithm for this problem. Derive the work and span of your approach.
 
+    ``` Python
+
+    def weighted_task_selection(tasks):
+      tasks.sort(key=lambda x: x[1])  
+      n = len(tasks)
+      p = compute_p(tasks)
+      OPT = [0]*(n+1)
+      for j in range(1, n+1):
+          OPT[j] = max(tasks[j-1][2] + OPT[p[j-1]], OPT[j-1])
+      return OPT[n]
+
+    ```
+
+  - Work: O(n log n) for sorting + O(n log n) to find p(j) → overall O(n log n).
+  - Span: O(log n) if sorting and binary search are parallelized.
 
   

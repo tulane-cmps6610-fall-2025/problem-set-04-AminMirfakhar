@@ -99,6 +99,8 @@ consistent trend? If so, what is it?
 | grammar.lsp  | 26047 | 17356 | 0.67  |
 | fields.c  | 78050  | 56206  | 0.72 |
 | **Average**  | **404211.4** | **271442.0** | **0.67** |
+
+All the files got reduced about the 0.4 of their size. Maybe if we could see the context of all files together, we could minimize the files furthermore.
   
 ----
 
@@ -111,10 +113,11 @@ representation as an
 almost-complete binary tree and show how to achieve the heap
 property for this tree with $O(n)$ work.
 
-
+- having the binary tree itself, we can start at bottom layer and look at each sub trees with a root and 2 leaves. then comparing the children to the parent tells us that we should swap them or not. in this case we should perform comparison as the number of edges, which is equal to $2 ^ \log{_2}{n} = n$. so the work would be O(n). (considering the work work for camparison and swapping in c*o(1)).
 
 
 - **2b.** What is the span of your approach?
+Since we can perform all the comparison between childrens at the same time, also all subtrees at each level could be checked together at the same time. then the span could be O($\log(n}$) equal to number of levels.
 
 
 ----
@@ -175,6 +178,9 @@ possible?
   while this problem does not have the greedy choice property it does
   have an optimal substructure property. State and prove this
   property.
+
+
+  - Having the coins set fixed ($k$ denominations of values $D_0, D_2, \ldots, D_k$) the Optimal substructure stats that if the optimal solution for $Optimal(N)$ has for example $D_i$ in it then the problem of having $N - D_i$ should have an optimal solution itself meaning the minimum number of coins.
 
 
 

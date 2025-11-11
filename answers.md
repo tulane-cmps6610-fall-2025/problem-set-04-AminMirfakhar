@@ -19,13 +19,12 @@ empirical performance on a dataset of 5 text files.
 
 
     ``` Python
-    
-# given an alphabet and frequencies, compute the cost of a fixed length encoding
-def fixed_length_cost(f):
-    n = len(f) 
-    bits_per_char = math.ceil(math.log2(n)) if n > 0 else 0
-    total_chars = sum(f.values())
-    return bits_per_char * total_chars
+    # given an alphabet and frequencies, compute the cost of a fixed length encoding
+    def fixed_length_cost(f):
+      n = len(f) 
+      bits_per_char = math.ceil(math.log2(n)) if n > 0 else 0
+      total_chars = sum(f.values())
+      return bits_per_char * total_chars
 
   ```
   
@@ -43,7 +42,27 @@ def fixed_length_cost(f):
   collected encoding for that character in `code`.
 
     ``` Python
+  # given a dictionary f mapping characters to frequencies, 
+  # create a prefix code tree using Huffman's algorithm
+  def make_huffman_tree(f):
+      p = queue.PriorityQueue()
+      # construct heap from frequencies, the initial items should be
+      # the leaves of the final tree
+      for c in f.keys():
+        p.put(TreeNode(None,None,(f[c], c)))
+  
+      # greedily remove the two nodes x and y with lowest frequency,
+      # create a new node z with x and y as children,
+      # insert z into the priority queue (using an empty character "")
+      while (p.qsize() > 1):
+        left = p.get()
+        right = p.get()
+        freq_sum = left.data[0] + right.data[0]
 
+        p.put(TreeNode(left, right, (freq_sum, "")))
+          
+      # return root of the tree
+      return p.get()
 
   ```
   
@@ -53,7 +72,12 @@ def fixed_length_cost(f):
 
 
   ``` Python
-
+  # given a Huffman encoding and character frequencies, compute cost of a Huffman encoding
+  def huffman_cost(C, f):
+    total = 0
+    for c in f.keys():
+        total += f[c] * len(C[c])
+    return total
 
   ```
 
@@ -65,6 +89,7 @@ fixed-length and Huffman. Fill out a final column which gives the
 ratio of Huffman coding cost to fixed-length coding cost. Do you see a
 consistent trend? If so, what is it?
 
+<center>
 
 |      File     | Fixed-Length Coding |  Huffman Coding | Huffman vs. Fixed-Length |
 | :-------------: | :-------------: | :-------------: | :-------------: |
@@ -74,7 +99,8 @@ consistent trend? If so, what is it?
 | grammar.lsp  | 26047 | 17356 | 0.67  |
 | fields.c  | 78050  | 56206  | 0.72 |
 | **Average**  | **404211.4** | **271442.0** | **0.67** |
-
+  
+</center>
 
 
 ----

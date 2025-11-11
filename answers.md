@@ -235,7 +235,7 @@ define a greedy criterion and prove that it satisfies the greedy
 choice property. If you cannot, find at least two counterexamples of greedy
 criteria that fail to achieve an optimal solution. 
 
-  - The greedy choice property does not hold for weighted task selection. for example consider we have three task to schedule {A: (0, 3, 3), B: (3, 5, 4), C: (0, 5, 6)} then the greedy algorithm will take A and B that takes 3 + 4 = 7 but the optimal solution is taking C instead having value of 6.
+  - The greedy choice property does not hold for weighted task selection. for example consider we have three task to schedule {A: (0, 3, 3), B: (3, 5, 4), C: (0, 5, 6)} then the greedy algorithm, to maximize the value, would take C having the most value. but the optimal selection is taking A and B with the total value of 7.
 
 
 

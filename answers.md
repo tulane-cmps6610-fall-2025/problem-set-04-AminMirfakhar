@@ -3,6 +3,7 @@
 
 **Name:** Amin Mirfakhar
 
+
 ----
 
 
@@ -89,7 +90,6 @@ fixed-length and Huffman. Fill out a final column which gives the
 ratio of Huffman coding cost to fixed-length coding cost. Do you see a
 consistent trend? If so, what is it?
 
-<center>
 
 |      File     | Fixed-Length Coding |  Huffman Coding | Huffman vs. Fixed-Length |
 | :-------------: | :-------------: | :-------------: | :-------------: |
@@ -100,10 +100,8 @@ consistent trend? If so, what is it?
 | fields.c  | 78050  | 56206  | 0.72 |
 | **Average**  | **404211.4** | **271442.0** | **0.67** |
   
-</center>
-
-
 ----
+
 
 ## Part 2: Binary Heaps
 

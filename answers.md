@@ -236,18 +236,22 @@ choice property. If you cannot, find at least two counterexamples of greedy
 criteria that fail to achieve an optimal solution. 
 
   - The greedy choice property does not hold for weighted task selection. for example consider we have three task to schedule {A: (0, 3, 3), B: (3, 5, 4), C: (0, 5, 6)} then the greedy algorithm, to maximize the value, would take C having the most value. but the optimal selection is taking A and B with the total value of 7.
+ 
+  - greedy by highest value/length ratio can also fail when a long task blocks multiple short valuable ones. 
+
 
 
 
 - **5c.** Use the optimal substructure property of this problem to design a
   dynamic programming algorithm for this problem. Derive the work and span of your approach.
 
+
     ``` Python
 
     def weighted_task_selection(tasks):
-      tasks.sort(key=lambda x: x[1])  
+      tasks.sort(key=lambda x: x[1])  # sort out the tasks by their ending time.
       n = len(tasks)
-      p = compute_p(tasks)
+      p = compute_p(tasks) # precompute the last compatible task
       OPT = [0]*(n+1)
       for j in range(1, n+1):
           OPT[j] = max(tasks[j-1][2] + OPT[p[j-1]], OPT[j-1])
